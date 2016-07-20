@@ -16,7 +16,7 @@ cd cloud-academy-dl</code>
 <code>
 python2.7 cloud-dl.py https://cloudacademy.com/cloud-computing/introduction-to-devops-course</code>
 
-All videos will be saved in dir 
-introduction-to-devops-course/what-is-devops.mp4
-introduction-to-devops-course/why-culture-is-important-in-devops.mp4
+All videos will be saved in dir                                                                
+introduction-to-devops-course/what-is-devops.mp4                                                                   
+introduction-to-devops-course/why-culture-is-important-in-devops.mp4                                            
 ...
