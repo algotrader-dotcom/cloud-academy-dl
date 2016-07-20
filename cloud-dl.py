@@ -11,7 +11,7 @@ from urlparse import urlparse
 BASE_URL = "https://cloudacademy.com"
 LIST = list()
 USERNAME = "ninhthuan82us@gmail.com"
-PASSWORD = "khoican123"
+PASSWORD = "123456"
 
 LOGIN_URL = "https://cloudacademy.com/login/"
 URL = "https://cloudacademy.com/cloud-computing/introduction-to-devops-course/"
