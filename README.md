@@ -8,7 +8,8 @@ Download videos from cloud academy course url
 You want to download all videos (resolution 720p) for course 'Introduction to DevOps'
 
 <code>
-git clone https://github.com/thuannvn/cloud-academy-dl.git</code>
+git clone https://github.com/thuannvn/cloud-academy-dl.git                          </code>
+
 <code>
 cd cloud-academy-dl</code>
 
