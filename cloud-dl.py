@@ -1,59 +1,46 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-from selenium import webdriver
-from selenium.webdriver.common.desired_capabilities import DesiredCapabilities
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.common.exceptions import WebDriverException
-import time 
-import pprint
-
+import requests
+from lxml import html
 from BeautifulSoup import BeautifulSoup
-import urllib2
-import re
+from mechanize import Browser
+import urllib, urllib2, cookielib
+from urlparse import urlparse
 
-def ajax_complete(driver):
-    try:
-        return 0 == driver.execute_script("return jQuery.active")
-    except WebDriverException:
-        pass
+# Declare variables
+BASE_URL = "https://cloudacademy.com"
+LIST = list()
+USERNAME = "ninhthuan82us@gmail.com"
+PASSWORD = "khoican123"
 
-# Initialize Firefox Browser
-driver = webdriver.Remote(command_executor='http://192.168.175.220:4444/wd/hub', desired_capabilities=DesiredCapabilities.FIREFOX)   
+LOGIN_URL = "https://cloudacademy.com/login/"
+URL = "https://cloudacademy.com/cloud-computing/introduction-to-devops-course/"
 
-# Browser Maximize
-# driver.maximize_window()
+parser = urlparse(URL)
+print parser
 
-# Login
-driver.get("https://cloudacademy.com/login/")
-email = driver.find_element_by_id('email')
-password  = driver.find_element_by_id('password')
+# Initilize session login
+cj = cookielib.CookieJar()
+opener = urllib2.build_opener(urllib2.HTTPCookieProcessor(cj))
+login_data = urllib.urlencode({'email' : USERNAME, 'password' : PASSWORD})
+opener.open('https://cloudacademy.com/login/', login_data)
+resp = opener.open(URL)
+html_page = resp.read()
 
-## Fill email & password
-email.send_keys("ninhthuan82us@gmail.com")
-password.send_keys("khoican123")
+# Process data response
+soup = BeautifulSoup(html_page)
+for div in soup.findAll('div', {'id': 'course-contents'}):
+    for link in div.findAll('a'):
+    	href = link.get('href')
+    	if (href.endswith('.html')):
+    		#print href
+    		LIST.append(href)
 
-## Submit login
-form = driver.find_element_by_id('login-form')
-form.submit()
-
-## Go admin content
-driver.get("https://cloudacademy.com/cloud-computing/introduction-to-devops-course/")
-
-html_page = driver.page_source
-print html_page
-
-#soup = BeautifulSoup(html_page)
-#for div in soup.findAll('div', {'class': 'accordion-group'}):
-#    for link in div.findAll('a'):
-#    	print link.prettify(), "\n----------------------------------------------------\n"
-
-WebDriverWait(driver, 120).until(ajax_complete,  "Timeout waiting for page to load")
-	
-## Sleep
-print "Waiting..."
-time.sleep(5)
-
-#html_page = driver.page_source.encode('utf-8')
-
-driver.quit()
-
+for item in LIST:
+    url = BASE_URL+item
+    print item
+    resp = opener.open(url)
+    html_page = resp.read()
+    soup = BeautifulSoup(html_page)
+    for source in soup.findAll('source', {'type': 'video/mp4', 'data-res': '720p'}):
+	    print source['src'] + '\n'
