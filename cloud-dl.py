@@ -9,7 +9,8 @@ from urlparse import urlparse
 
 # Declare variables
 BASE_URL = "https://cloudacademy.com"
-LIST = list()
+LIST = list() # List urls video lesson of course
+
 USERNAME = "ninhthuan82us@gmail.com"
 PASSWORD = "123456"
 
