@@ -6,6 +6,7 @@ Download videos from cloud academy course url
 - Account username/password login to https://cloudacademy.com
 
 # How to use
+Notes: Please enter your account in cloud-dl.py before running this script
 You want to download all videos (resolution 720p) for course 'Introduction to DevOps'
 
 <code>
