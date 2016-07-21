@@ -30,6 +30,7 @@ BASE_DIR = "cloud-academy"
 BASE_URL = "https://cloudacademy.com"
 LIST = list() # List urls video lesson of course
 
+# Enter your account login on cloudacademy.com before run this script
 USERNAME = "your-emaill@gmail.com"
 PASSWORD = "*****"
 
