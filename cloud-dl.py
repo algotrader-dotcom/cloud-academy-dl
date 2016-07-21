@@ -30,8 +30,8 @@ BASE_DIR = "cloud-academy"
 BASE_URL = "https://cloudacademy.com"
 LIST = list() # List urls video lesson of course
 
-USERNAME = "ninhthuan82us@gmail.com"
-PASSWORD = "123456"
+USERNAME = "your-emaill@gmail.com"
+PASSWORD = "*****"
 
 LOGIN_URL = "https://cloudacademy.com/login/"
 #URL = "https://cloudacademy.com/cloud-computing/introduction-to-devops-course"
