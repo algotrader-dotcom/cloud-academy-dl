@@ -3,7 +3,7 @@ Download videos from cloud academy course url
 
 # Requirements
 - Python 2.7, Beautiful Soup
-- Account username/password login to https://cloudacademy.com
+- Account username/password login to cloudacademy.com
 
 # How to use
 Notes: Please enter your account in cloud-dl.py before running this script                                                              
